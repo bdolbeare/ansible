@@ -58,7 +58,7 @@ yum clean all
 /bin/rm -f /etc/udev/rules.d/70*
 
 # remove nic mac addr and uuid from ifcfg scripts
-/bin/sed -i '/^\(HWADDR|UUID)=/d' /etc/sysconfig/network-scripts/ifcfg-e*
+/bin/sed -i '/^(HWADDR|UUID)=/d' /etc/sysconfig/network-scripts/ifcfg-e*
 
 # clean tmp
 #/bin/rm -rf /tmp/*

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#
+# This script was based on:  https://community.spiceworks.com/how_to/151558-create-a-rhel-centos-6-7-template-for-vmware-vsphere
+#
+
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 
    exit 1

@@ -1,0 +1,33 @@
+---
+
+  - name: Configure CentOS Virtual Machine
+    hosts: localhost
+    become: yes
+    become_method: su
+
+    tasks:
+
+
+      # 
+      # Pre-conditions
+      #
+
+      - fail: 
+          msg: "Bailing out: this playbook requires 'hostname'.  Try passing '-e hostname=XXX' to ansible-playbook."
+        when: hostname is not defined
+
+
+      # 
+      # Setup hostname
+      # 
+
+      - name: change hostname
+        hostname:
+          name: "{{ hostname }}"
+
+      - name: collect the hostname
+        command: hostname
+        register: result
+
+      - debug: 
+          msg: "hostname is now set to: {{ result.stdout }}"

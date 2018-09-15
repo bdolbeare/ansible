@@ -1,0 +1,26 @@
+---
+
+  - name: Configure CentOS Virtual Machine
+    become: yes
+    become_method: su
+
+    tasks:
+
+
+      # 
+      # Yum updates
+      # 
+
+      - name: upgrade all packages
+        yum:
+          name: '*'
+
+      - name: install required packages
+        yum:
+          name: "{{ packages }}"
+          state: latest
+        vars:
+          packages:
+          - git
+          - tmux
+

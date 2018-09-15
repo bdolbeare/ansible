@@ -24,7 +24,7 @@ curl -s https://raw.githubusercontent.com/bdolbeare/vm-setup/master/vm/template/
 ./setup.sh
 
 # clean up
-rm ./setup.sh
+rm -f ./setup.sh
 sys-unconfig
 ```
 4.  After step 3, the VM should be shutdown.  Copy it's VMDK to a new location on the ESXi datastore with a filename that includes the date so that you know when the template was created (e.g. 20180915-1130-centos7-template.vmdk).
